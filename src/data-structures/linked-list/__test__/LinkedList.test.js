@@ -78,8 +78,8 @@ describe("LinkedList", () => {
     const linkedList = new LinkedList();
     linkedList.fromValues(1, 2, 3, 4);
 
-    expect(linkedList.find(5)).toBeNull();
-    expect(linkedList.find(3).value).toBe(3);
+    expect(linkedList.find({ value: 5 })).toBeNull();
+    expect(linkedList.find({ value: 3 }).value).toBe(3);
   });
 
   it("should reserve", () => {

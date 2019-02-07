@@ -91,14 +91,17 @@ export default class LinkedList {
     return deletedNode;
   }
 
-  find(value) {
+  find({ value = undefined, callback = undefined }) {
     if (!this.head) {
       return null;
     }
 
     let currentNode = this.head;
     while (currentNode) {
-      if (currentNode.value === value) {
+      if (callback && callback(currentNode.value)) {
+        return currentNode;
+      }
+      if (value && currentNode.value === value) {
         return currentNode;
       }
       currentNode = currentNode.next;
